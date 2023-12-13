@@ -3,6 +3,7 @@ import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 import "./style.css";
 import { Tooltip } from "@mui/material";
+import {convertNumbers} from '../../../functions/convertNumbers'
 
 const List = ({ coin }) => {
   return (
@@ -22,8 +23,8 @@ const List = ({ coin }) => {
       </Tooltip>
       <Tooltip title='Price Change in 24hr'placement="bottom-start">
       {coin.price_change_percentage_24h > 0 ? (
-        <td className="chip-flex">
-          <div className="price-chip">
+        <td className="chip-flex chip-flex-mobile">
+          <div className="price-chip price-chip-desktop">
             {coin.price_change_percentage_24h.toFixed(2)} %
           </div>
           <div className="icon-chip td-icon">
@@ -32,8 +33,8 @@ const List = ({ coin }) => {
         </td>
         
       ) : (
-        <td className="chip-flex">
-          <div className="price-chip chip-red">
+        <td className="chip-flex chip-flex-mobile">
+          <div className="price-chip price-chip-desktop chip-red">
             {coin.price_change_percentage_24h.toFixed(2)} %
           </div>
           <div className="icon-chip chip-red td-icon">
@@ -58,9 +59,16 @@ const List = ({ coin }) => {
       </td>
       </Tooltip>
       <Tooltip title='Market Cap'placement="bottom">
-      <td>
+      <td className="desktop-td-market">
       <p className="total_volume td-right-align">
           ${coin.market_cap.toLocaleString()}
+        </p>
+      </td>
+      </Tooltip>
+      <Tooltip title='Market Cap'placement="bottom">
+      <td className="mobile-td-market">
+      <p className="total_volume td-right-align">
+          ${convertNumbers(coin.market_cap)}
         </p>
       </td>
       </Tooltip>

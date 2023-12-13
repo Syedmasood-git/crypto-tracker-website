@@ -25,6 +25,12 @@
 .td-right-align{
     text-align: right;
 }
+.desktop-td-market{
+    display: block;
+}
+.mobile-td-market{
+    display: none;
+}
 @media only screen and (max-width: 1150px){
     .td-icon{
         display: none;
@@ -37,7 +43,103 @@
 }
 @media only screen and (max-width: 800px){
     .price-chip{
-        font-size: 90%;
+        font-size: 80%;
+        padding: 0.8rem 0.6rem;
+    }
+    .desktop-td-market{
+        display :none;
+    }
+    .mobile-td-market{
+        display: block;
+    }
+    .coin-price{
+        font-size: 1rem;
+    }
+    .name-col p{
+        font-size: 1rem;
+    }
+    .coin-logo {
+        width: 2.7rem;
+        height: 2.7rem;
+    }
+    .total_volume{
+        font-size: 1rem;
+        margin: 0.8rem 0.4rem;
     }
     
+    
+}
+@media only screen and (max-width: 500px){
+    .price-chip{
+        font-size: 75%;
+        padding: 5px;
+    }
+    .desktop-td-market{
+        display :none;
+    }
+    .mobile-td-market{
+        display: block;
+    }
+    .coin-price{
+        font-size: .8rem;
+        
+    }
+    .total_volume{
+        font-size: .8rem;
+        margin: 0.6rem 0.2rem;
+    }
+    .name-col p{
+        font-size: .8rem;
+    }
+    .coin-logo {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    .list-row{
+        padding: .8rem 0;
+        margin: 1rem 0;
+    }
+}
+@media only screen and (max-width: 400px){
+    .price-chip-desktop{
+        display: none;
+    }
+    .chip-flex-mobile{
+        margin: 0;
+        padding: 0;
+    }
+    .chip-flex{
+        margin: 1rem;
+    }
+    .desktop-td-market{
+        display :none;
+        padding: 0;
+    }
+    .mobile-td-market{
+        display: block;
+    }
+    .coin-price{
+        font-size: .8rem;
+    }
+    .coin-price-mobile{
+        font-size: 1.2rem;
+    }
+    .total_volume{
+        font-size: .8rem;
+        margin: 0.6rem 0.2rem;
+    }
+    .name-col p{
+        font-size: .8rem;
+    }
+    .coin-logo {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    .list-row{
+        padding: .8rem 0;
+        margin: 1rem 0;
+    }
+    .total_volume{
+        margin: .6rem .8rem;
+    }
 }

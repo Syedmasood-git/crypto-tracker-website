@@ -35,7 +35,7 @@ export default function TabsComponent({coins}) {
   return (
     <ThemeProvider theme={theme}>
       <TabContext value={value}>
-        <div>
+        <div className='hello'>
           <TabList onChange={handleChange} variant='fullWidth'>
             <Tab label="Grid" value="grid" sx={style} />
             <Tab label="List" value="list" sx={style} />

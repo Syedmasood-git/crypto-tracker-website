@@ -22,7 +22,7 @@ const Grid = ({coin}) => {
         <div className='icon-chip chip-red'><TrendingDownIcon/></div>
       </div>}
       <div className='info-container'>
-        <h3 className='coin-price' style={{color:coin.price_change_percentage_24h>0?'var(--green)':'var(--red)'}}>${coin.current_price.toLocaleString()}</h3>
+        <h3 className='coin-price coin-price-mobile' style={{color:coin.price_change_percentage_24h>0?'var(--green)':'var(--red)'}}>${coin.current_price.toLocaleString()}</h3>
       </div>
       <p className='total_volume'>Total Volume : ${coin.total_volume.toLocaleString()}</p>
       <p className='total_volume'>Market Cap : ${coin.market_cap.toLocaleString()}</p>
