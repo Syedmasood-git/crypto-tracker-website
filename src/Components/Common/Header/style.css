@@ -4,8 +4,9 @@
     top: 0;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 3rem;
+    padding: 0 3rem;
     z-index: 100;
+    background-color: var(--black);
 }
 .links{
     display: flex;
