@@ -4,6 +4,7 @@ import Button from '../../Common/Button'
 import iphone from '../../../Assets/iPhone.png'
 import gradient from '../../../Assets/gradient 1.svg'
 import {motion} from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 const MainComponent = () => {
   return (
@@ -25,7 +26,7 @@ const MainComponent = () => {
             initial={{opacity:0,y:50}}
             animate={{opacity:1,y:0}}
             transition={{duration:1,delay:1.5}} className='btn-flex'>
-            <Button text={'Dashboard'} />
+            <Link to='/dashboard'><Button text={'Dashboard'} /></Link>
             <Button text={'Share'} outlined={true} />
         </motion.div>
         </div>
