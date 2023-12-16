@@ -3,8 +3,7 @@ import './App.css'
 import Home from './pages/Home'
 import { BrowserRouter as Router,Route,Routes } from 'react-router-dom'
 import DashboardPage from './pages/Dashboard'
-import Watchlist from './pages/Watchlist'
-import Header from './Components/Common/Header'
+import WatchlistPage from './pages/Watchlist'
 import CoinPage from './pages/CoinPage'
 import Compare from './pages/Compare'
 
@@ -17,7 +16,7 @@ const App = () => {
           <Route path='/dashboard'element={<DashboardPage/>}/>
           <Route path='/coin/:id' element={<CoinPage/>}/>
           <Route path='/compare' element={<Compare/>}/>
-          <Route path='/watchlist' element={<Watchlist/>}/>
+          <Route path='/watchlist' element={<WatchlistPage/>}/>
         </Routes>
       </Router>
     </div>

@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 import "./style.css";
-import { Tooltip } from "@mui/material";
+import { IconButton, Tooltip } from "@mui/material";
 import {convertNumbers} from '../../../functions/convertNumbers'
 import { Link } from "react-router-dom";
+import { removeFromWatchlist } from "../../../functions/removeFromWatchlist";
+import { addToWatchlist } from "../../../functions/addToWatchlist";
+import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
+import StarRoundedIcon from "@mui/icons-material/StarRounded";
+import { hasBeenAdded } from "../../../functions/hasBeenAdded";
 
 const List = ({ coin }) => {
+  const [added, setAdded] = useState(hasBeenAdded(coin.id));
   return (
     <Link to={`/coin/${coin.id}`}>
     <tr className="list-row">
@@ -23,6 +29,34 @@ const List = ({ coin }) => {
         </div>
       </td>
       </Tooltip>
+      <IconButton
+            onClick={(e) => {
+              e.preventDefault();
+              if (added) {
+                removeFromWatchlist(coin.id);
+                setAdded(false);
+              } else {
+                addToWatchlist(coin.id);
+                setAdded(true);
+              }
+            }}
+          >
+            {added ? (
+              <StarRoundedIcon
+                className={`watchlist-icon ${
+                  coin.price_change_percentage_24h < 0 && "watchlist-icon-red"
+                } `}
+                sx={{ fontSize: "2rem !important" }}
+              />
+            ) : (
+              <StarBorderRoundedIcon
+                className={`watchlist-icon ${
+                  coin.price_change_percentage_24h < 0 && "watchlist-icon-red"
+                } `}
+                sx={{ fontSize: "2rem !important" }}
+              />
+            )}
+          </IconButton>
       <Tooltip title='Price Change in 24hr'placement="bottom-start">
       {coin.price_change_percentage_24h > 0 ? (
         <td className="chip-flex chip-flex-mobile">

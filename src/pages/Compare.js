@@ -10,6 +10,7 @@ import Loader from "../Components/Common/Loader";
 import List from "../Components/Dashboard/List";
 import CoinInfo from "../Components/Coin/CoinInfo";
 import LineChart from "../Components/Coin/LineChart";
+import TogglePriceType from "../Components/Coin/PriceType";
 
 const Compare = () => {
   const [crypto1, setCrypto1] = useState("bitcoin");
@@ -21,9 +22,22 @@ const Compare = () => {
   const [priceType, setPriceType] = useState("prices");
   const [chartData,setChartData]=useState({})
 
-  function handleDaysChange(e) {
+  async function handleDaysChange(e) {
+    setIsLoading(true)
     setDays(e.target.value);
+    const prices1 = await getCoinPrices(crypto1, e.target.value, priceType);
+      const prices2 = await getCoinPrices(crypto2, e.target.value, priceType);
+      settingChartData(setChartData,prices1,prices2)
+      setIsLoading(false)
   }
+  const handlePriceTypeChange =async (e, newType) => {
+    setIsLoading(true);
+    setPriceType(newType);
+    const prices1 = await getCoinPrices(crypto1, days, newType);
+      const prices2 = await getCoinPrices(crypto2, days, newType);
+      settingChartData(setChartData,prices1,prices2)
+        setIsLoading(false);
+  };
 
   
   
@@ -61,7 +75,7 @@ const Compare = () => {
       const data = await getCoinData(e.target.value);
       coinObject(setCrypto2Data, data);
       const prices1 = await getCoinPrices(crypto1, days, priceType);
-    const prices2 = await getCoinPrices(crypto2, days, priceType);
+      const prices2 = await getCoinPrices(crypto2, days, priceType);
     if (prices1.length > 0 && prices2.length > 0) {
       console.log('Both prices fetched',prices1,prices2)
       setIsLoading(false);
@@ -70,6 +84,9 @@ const Compare = () => {
       setCrypto1(e.target.value);
       const data = await getCoinData(e.target.value);
       coinObject(setCrypto1Data, data);
+      const prices1 = await getCoinPrices(crypto1, days, priceType);
+      const prices2 = await getCoinPrices(crypto2, days, priceType);
+      setIsLoading(false)
     }
     
   };
@@ -100,7 +117,8 @@ const Compare = () => {
             <List coin={crypto2Data} />
           </div>
           <div className="grey-wrapper">
-            <LineChart chartData={chartData} priceType={'prices'} />
+          <TogglePriceType priceType={priceType} handlePriceTypeChange={handlePriceTypeChange}/>
+            <LineChart chartData={chartData} multiAxis={true} priceType={priceType} />
           </div>
           <CoinInfo heading={crypto1Data.name} desc={crypto1Data.desc} />
           <CoinInfo heading={crypto2Data.name} desc={crypto2Data.desc} />
@@ -109,5 +127,5 @@ const Compare = () => {
     </div>
   );
 };
-
 export default Compare;
+

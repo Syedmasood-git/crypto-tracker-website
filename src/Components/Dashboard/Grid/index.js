@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './style.css'
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import { Link } from 'react-router-dom';
+import { IconButton } from '@mui/material';
+import { removeFromWatchlist } from '../../../functions/removeFromWatchlist';
+import { addToWatchlist } from '../../../functions/addToWatchlist';
+import { hasBeenAdded } from '../../../functions/hasBeenAdded';
+import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
+import StarRoundedIcon from "@mui/icons-material/StarRounded";
 
-const Grid = ({coin}) => {
+const Grid = ({ coin}) => {
+  const [added, setAdded] = useState(hasBeenAdded(coin.id));
   return (
     <Link to={`/coin/${coin.id}`}>
     <div className={`grid-container ${coin.price_change_percentage_24h<0 && 'grid-container-red'}`}>
@@ -14,7 +21,36 @@ const Grid = ({coin}) => {
           <p className='coin-symbol'>{coin.symbol}</p>
           <p className='coin-name'>{coin.name}</p>
         </div>
+      <IconButton
+            onClick={(e) => {
+              e.preventDefault();
+              if (added) {
+                removeFromWatchlist(coin.id);
+                setAdded(false);
+              } else {
+                addToWatchlist(coin.id);
+                setAdded(true);
+              }
+            }}
+          >
+            {added ? (
+              <StarRoundedIcon
+                className={`watchlist-icon ${
+                  coin.price_change_percentage_24h < 0 && "watchlist-icon-red"
+                } `}
+                sx={{ fontSize: "2rem !important" }}
+              />
+            ) : (
+              <StarBorderRoundedIcon
+                className={`watchlist-icon ${
+                  coin.price_change_percentage_24h < 0 && "watchlist-icon-red"
+                } `}
+                sx={{ fontSize: "2rem !important" }}
+              />
+            )}
+          </IconButton>
       </div>
+
         {coin.price_change_percentage_24h>0?(<div className='chip-flex'>
           <div className='price-chip'>{coin.price_change_percentage_24h.toFixed(2)} %</div>
         <div className='icon-chip'><TrendingUpIcon/></div>
