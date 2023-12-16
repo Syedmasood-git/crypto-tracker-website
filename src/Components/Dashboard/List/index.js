@@ -109,7 +109,7 @@ const List = ({ coin }) => {
       </td>
       </Tooltip>
       <Tooltip title='Total Volume'placement="bottom">
-      <td>
+      <td className="totalvol">
         <p className="total_volume td-right-align td-volume">
           ${coin.total_volume.toLocaleString()}
         </p>

@@ -98,15 +98,16 @@
     .list-row{
         padding: .8rem 0;
         margin: 1rem 0;
+        overflow: hidden;
+        height: 52px;
     }
 }
-@media only screen and (max-width: 400px){
+@media only screen and (max-width: 450px){
     .price-chip-desktop{
         display: none;
     }
     .chip-flex-mobile{
-        margin: 0;
-        padding: 0;
+        display: none;
     }
     .chip-flex{
         margin: 1rem;
@@ -140,6 +141,12 @@
         margin: 1rem 0;
     }
     .total_volume{
-        margin: .6rem .8rem;
+        margin: .3rem .3rem;
     }
+    .td-image{
+        margin-right: .5rem;
+      }
+      .totalvol{
+        display: none;
+      }
 }

@@ -132,3 +132,9 @@
       padding: 0.35rem;
     }
   }
+  @media only screen and (max-width: 450px) {
+    .watchlist-icon,.watchlist-icon-red {
+        width: .8em !important;
+        height:.8em !important;
+      }
+  }

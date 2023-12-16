@@ -18,3 +18,8 @@
         width: 95%;
     }
 }
+@media only screen and (max-width: 450px){
+    .tablePanel{
+        padding: 24px 5px !important;
+    }
+}

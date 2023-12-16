@@ -46,7 +46,7 @@ export default function TabsComponent({coins}) {
                 <Grid coin={coin} key={ind}/>
             )
         })}</div></TabPanel>
-        <TabPanel value="list"><table className='list-table'>{coins.map((coin,ind)=>{
+        <TabPanel className='tablePanel' value="list"><table className='list-table'>{coins.map((coin,ind)=>{
             return (
                 <List coin={coin} key={ind}/>
             )

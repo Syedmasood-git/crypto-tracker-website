@@ -10,7 +10,7 @@ function LineChart({ chartData, priceType, multiAxis }) {
         display: multiAxis ? true : false,
       },
     },
-    responsive: true,
+    maintainAspectRatio: true,
     interaction: {
       mode: "index",
       intersect: false,

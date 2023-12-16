@@ -21,7 +21,7 @@ const Grid = ({ coin}) => {
           <p className='coin-symbol'>{coin.symbol}</p>
           <p className='coin-name'>{coin.name}</p>
         </div>
-      <IconButton
+      <IconButton className='ico'
             onClick={(e) => {
               e.preventDefault();
               if (added) {
