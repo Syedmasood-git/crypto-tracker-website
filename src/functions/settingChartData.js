@@ -38,6 +38,7 @@ export const settingChartData=(setChartData,prices1,prices2)=>{
       labels: prices1.map((price) => convertDate(price[0])),
       datasets: [
         {
+          label:'Crypto1',
           data: prices1.map((price) => price[1]),
           borderColor: "#3a80e9",
           borderWidth: 3,
@@ -46,6 +47,7 @@ export const settingChartData=(setChartData,prices1,prices2)=>{
           backgroundColor:"rgba(58, 128, 233,0.1)",
           borderColor: "#3a80e9",
           pointRadius: 0,
+          yAxisID:'cryptoSingle'
         },
       ],
     });

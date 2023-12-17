@@ -32,9 +32,9 @@ const Compare = () => {
   }
   const handlePriceTypeChange =async (e, newType) => {
     setIsLoading(true);
-    setPriceType(newType);
-    const prices1 = await getCoinPrices(crypto1, days, newType);
-      const prices2 = await getCoinPrices(crypto2, days, newType);
+    setPriceType(e.target.value);
+    const prices1 = await getCoinPrices(crypto1, days, e.target.value);
+      const prices2 = await getCoinPrices(crypto2, days, e.target.value);
       settingChartData(setChartData,prices1,prices2)
         setIsLoading(false);
   };
