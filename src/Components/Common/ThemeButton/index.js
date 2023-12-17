@@ -3,10 +3,9 @@ import { styled } from '@mui/material/styles';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
+import { useTheme } from '../../ThemeContext';
 
-const ThemeButton = styled(Switch)(({ theme,handleChange }) => ({
+const ThemeButton = styled(Switch)(({ theme }) => ({
   width: 62,
   height: 34,
   padding: 7,
@@ -57,18 +56,17 @@ const ThemeButton = styled(Switch)(({ theme,handleChange }) => ({
 
 
 export default function CustomizedSwitches() {
-    const [theme,setTheme]=useState('light-theme')
-    const handleChange=()=>{
-        theme==='dark-theme'?setTheme("light-theme"):setTheme("dark-theme");
-    }
-    useEffect(()=>{
-        document.body.className=theme;
-    },[theme])
+  const { theme, toggleTheme } = useTheme();
+    
+  useEffect(()=>{
+    document.body.className=theme;
+    console.log(theme)
+  },[theme])
   return (
     <FormGroup>
       <FormControlLabel
-        control={<ThemeButton sx={{ m: 1 }} defaultValue={false} />}
-         onChange={handleChange}
+        control={<ThemeButton sx={{ m: 1 }} checked={theme==='dark-theme'} />}
+         onChange={toggleTheme}
       />
     </FormGroup>
   );

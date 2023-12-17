@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import "./style.css";
 import TemporaryDrawer from "./Drawer";
 import Button from "../Button";
-import ThemeButton from "../ThemeButton";
 import { Link } from "react-router-dom";
+import CustomizedSwitches from "../ThemeButton";
+import { ThemeProvider } from "../../ThemeContext";
 
 const Header = () => {
   return (
+    <ThemeProvider>
     <div className="navbar">
       <div>
         <Link to="/">
@@ -17,7 +19,7 @@ const Header = () => {
       </div>
       <div className="links-container">
         <div div className="ab">
-          <ThemeButton className="theme-btn"></ThemeButton>
+          <CustomizedSwitches/>
         <div className="links">
           <Link to="/">
             <p className="link">Home</p>
@@ -43,6 +45,7 @@ const Header = () => {
       </div>
       </div>
     </div>
+    </ThemeProvider>
   );
 };
 

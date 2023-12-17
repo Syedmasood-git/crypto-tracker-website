@@ -14,8 +14,8 @@
     transition: all .3s;
 }
 .outlined-btn{
-    background-color: var(--black);
-    color: var(--white);
+    background-color: var(--white);
+    color: var(--black);
     border:2px solid var(--blue);
     padding: .7rem 1.5rem;
     border-radius: 3rem;
