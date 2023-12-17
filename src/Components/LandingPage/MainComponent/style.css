@@ -9,12 +9,12 @@
     margin: 0;
 }
 .track-crypto-heading{
-    color: var(--white);
+    color: var(--black);
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: var(--white);
+    -webkit-text-stroke-color: var(--black);
 }
 .track-crypto-heading:hover{
-    color: var(--black);
+    color: var(--white);
     transition: all 0.3s;
 
 }

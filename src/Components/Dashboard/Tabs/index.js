@@ -18,7 +18,7 @@ export default function TabsComponent({coins}) {
   };
 
   const style={
-    color:'var(--white)',
+    color:'var(--black)',
     width:'50vw',
     fontSize:'1.2rem',
     fontWeight:500,

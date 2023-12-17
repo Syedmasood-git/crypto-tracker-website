@@ -8,12 +8,12 @@ const SelectCoins = ({crypto1,crypto2,handleCoinChange}) => {
     const [allCoins,setAllCoins]=useState([])
   const styles = {
     height: "2.5rem",
-    color: "var(--white)",
+    color: "var(--black)",
     "& .MuiOutlinedInput-notchedOutline": {
-      borderColor: "var(--white)",
+      borderColor: "var(--black)",
     },
     "& .MuiSvgIcon-root": {
-      color: "var(--white)",
+      color: "var(--black)",
     },
     "&:hover": {
       "&& fieldset": {
@@ -33,7 +33,7 @@ const SelectCoins = ({crypto1,crypto2,handleCoinChange}) => {
   }
   return (
     <div className="coin-flex">
-        <p>Crypto 1</p>
+        <p style={{color:"var(--black)"}}>Crypto 1</p>
       <Select
         sx={styles}
         value={crypto1}
@@ -44,7 +44,7 @@ const SelectCoins = ({crypto1,crypto2,handleCoinChange}) => {
             <MenuItem key={ind} value={coin.id}>{coin.name}</MenuItem>
         ))}
       </Select>
-      <p>Crypto 2</p>
+      <p style={{color:"var(--black)"}}>Crypto 2</p>
       <Select
         sx={styles}
         value={crypto2}

@@ -10,7 +10,6 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-      
           <IconButton onClick={()=>setOpen(true)}><MenuRoundedIcon className='link'/></IconButton>
           <Drawer
             anchor={'right'}

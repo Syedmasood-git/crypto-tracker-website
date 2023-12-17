@@ -20,12 +20,12 @@ export default function SelectDays({days,handleDaysChange,noPTag}) {
           onChange={handleDaysChange}
           sx={{
             height: "2.5rem",
-            color: "var(--white)",
+            color: "var(--black)",
             "& .MuiOutlinedInput-notchedOutline": {
-              borderColor: "var(--white)",
+              borderColor: "var(--black)",
             },
             "& .MuiSvgIcon-root": {
-              color: "var(--white)",
+              color: "var(--black)",
             },
             "&:hover": {
               "&& fieldset": {

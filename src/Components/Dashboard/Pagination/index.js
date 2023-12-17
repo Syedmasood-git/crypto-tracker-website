@@ -20,7 +20,7 @@ export default function PaginationComponent({page,handlePageChange}) {
             border: "0px solid var(--grey) !important",
             },
             
-            "& .MuiPaginationItem-text": { color: "var(--white)",
+            "& .MuiPaginationItem-text": { color: "var(--black)",
             border: "1px solid var(--grey)",
         },
 
