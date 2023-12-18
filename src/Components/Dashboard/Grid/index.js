@@ -10,11 +10,11 @@ import { hasBeenAdded } from '../../../functions/hasBeenAdded';
 import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 
-const Grid = ({ coin}) => {
+const Grid = ({ coin,isWatchlistPage}) => {
   const [added, setAdded] = useState(hasBeenAdded(coin.id));
   return (
     <Link to={`/coin/${coin.id}`}>
-    <div className={`grid-container ${coin.price_change_percentage_24h<0 && 'grid-container-red'}`}>
+    <div className={`grid-container ${coin.price_change_percentage_24h<0 && 'grid-container-red'}`} style={{display:isWatchlistPage&&!added && 'none'}}>
       <div className='info-flex'>
         <img src={coin.image} className='coin-logo' alt=''/>
         <div className='name-col'>

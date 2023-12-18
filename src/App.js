@@ -6,11 +6,13 @@ import DashboardPage from './pages/Dashboard'
 import WatchlistPage from './pages/Watchlist'
 import CoinPage from './pages/CoinPage'
 import Compare from './pages/Compare'
-import ThemeProvider from './Components/Common/ThemeButton';
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 const App = () => {
   
   return (
     <div className='app' data-theme="light">
+      <ToastContainer/>
       <Router>
         <Routes>
           <Route path='/'element={<Home/>}/>

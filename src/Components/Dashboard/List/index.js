@@ -11,11 +11,11 @@ import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import { hasBeenAdded } from "../../../functions/hasBeenAdded";
 
-const List = ({ coin }) => {
+const List = ({ coin,isWatchlistPage }) => {
   const [added, setAdded] = useState(hasBeenAdded(coin.id));
   return (
     <Link to={`/coin/${coin.id}`}>
-    <tr className="list-row">
+    <tr className="list-row" style={{ display: isWatchlistPage && !added && "none" }}>
         <Tooltip title='Coin Logo' placement="bottom-start">
       <td className="td-image">
         <img src={coin.image} className="coin-logo" alt="" />
@@ -29,34 +29,7 @@ const List = ({ coin }) => {
         </div>
       </td>
       </Tooltip>
-      <IconButton
-            onClick={(e) => {
-              e.preventDefault();
-              if (added) {
-                removeFromWatchlist(coin.id);
-                setAdded(false);
-              } else {
-                addToWatchlist(coin.id);
-                setAdded(true);
-              }
-            }}
-          >
-            {added ? (
-              <StarRoundedIcon
-                className={`watchlist-icon ${
-                  coin.price_change_percentage_24h < 0 && "watchlist-icon-red"
-                } `}
-                sx={{ fontSize: "2rem !important" }}
-              />
-            ) : (
-              <StarBorderRoundedIcon
-                className={`watchlist-icon ${
-                  coin.price_change_percentage_24h < 0 && "watchlist-icon-red"
-                } `}
-                sx={{ fontSize: "2rem !important" }}
-              />
-            )}
-          </IconButton>
+      
       <Tooltip title='Price Change in 24hr'placement="bottom-start">
       {coin.price_change_percentage_24h > 0 ? (
         <td className="chip-flex chip-flex-mobile">
@@ -115,6 +88,38 @@ const List = ({ coin }) => {
         </p>
       </td>
       </Tooltip>
+      <td>
+      <IconButton
+            onClick={(e) => {
+              e.preventDefault();
+              if (added) {
+                console.log("Removing from watchlist:", coin.id);
+                removeFromWatchlist(coin.id);
+                setAdded(false);
+              } else {
+                console.log("Adding to watchlist:", coin.id);
+                addToWatchlist(coin.id);
+                setAdded(true);
+              }
+            }}
+          >
+            {added ? (
+              <StarRoundedIcon
+                className={`watchlist-icon ${
+                  coin.price_change_percentage_24h < 0 && "watchlist-icon-red"
+                } `}
+                sx={{ fontSize: "2rem !important" }}
+              />
+            ) : (
+              <StarBorderRoundedIcon
+                className={`watchlist-icon ${
+                  coin.price_change_percentage_24h < 0 && "watchlist-icon-red"
+                } `}
+                sx={{ fontSize: "2rem !important" }}
+              />
+            )}
+          </IconButton>
+      </td>
     </tr>
     </Link>
   );
