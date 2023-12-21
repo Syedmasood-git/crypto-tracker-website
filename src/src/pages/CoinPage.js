@@ -62,7 +62,7 @@ const CoinPage = () => {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       {isLoading ? (
         <Loader />
       ) : (

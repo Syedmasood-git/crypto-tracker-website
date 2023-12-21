@@ -8,14 +8,19 @@ import CoinPage from './pages/CoinPage'
 import Compare from './pages/Compare'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import Signup from './pages/Signup'
+import Header from './Components/Common/Header'
+
 const App = () => {
   
   return (
     <div className='app' data-theme="light">
       <ToastContainer/>
       <Router>
+        <Header/>
         <Routes>
-          <Route path='/'element={<Home/>}/>
+          <Route path='/'element={<Signup/>}/>
+          <Route path='/home'element={<Home/>}/>
           <Route path='/dashboard'element={<DashboardPage/>}/>
           <Route path='/coin/:id' element={<CoinPage/>}/>
           <Route path='/compare' element={<Compare/>}/>

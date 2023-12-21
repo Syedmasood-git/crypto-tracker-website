@@ -28,6 +28,15 @@ body{
   --red:#f94141 ;
   --whitish:#fff;
   --backgroundColor:#111;
+  --theme:#2970ff;
+--shadow:0px 0px 30px 8px rgba(227,227,227,0.75);
+}
+.wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 90vh;
 }
 .light-theme{
   --white:#fff;
@@ -39,6 +48,8 @@ body{
   --red:#f94141;
   --whitish:#fff;
   --backgroundColor:#EEF5FF;
+  --theme:#2970ff;
+--shadow:0px 0px 30px 8px rgba(227,227,227,0.75);
 }
 a{
   color: var(--white);

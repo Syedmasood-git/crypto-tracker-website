@@ -38,7 +38,8 @@ const DashboardPage = () => {
     }
   }
   return (
-    <><Header/>
+    <>
+    {/* <Header/> */}
     <BackToTop/>{isLoading?<Loader/>:
     <div>
       <Search search={search} onSearchChange={onSearchChange}/>

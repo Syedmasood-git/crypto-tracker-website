@@ -6,7 +6,7 @@ import ScrollDiv from '../Components/Common/ScrollDiv'
 const Home = () => {
   return (
     <div>
-      <Header/>
+      {/* <Header/> */}
       <ScrollDiv/>
       <MainComponent/>  
     </div>

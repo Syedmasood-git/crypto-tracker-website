@@ -93,7 +93,7 @@ const Compare = () => {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       {isLoading ? (
         <Loader />
       ) : (
