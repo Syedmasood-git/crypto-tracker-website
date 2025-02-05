@@ -12,13 +12,14 @@ import { auth, db, provider } from "../../config/firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import Button_signup from "../Common/Button_signup";
+import googlepng from "../../Assets/google.png"
 
 const SignupSignin = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [loginForm, setLoginForm] = useState(false);
+  const [loginForm, setLoginForm] = useState(true);
   const navigate = useNavigate();
 
   function signupWithEmail() {
@@ -103,7 +104,7 @@ const SignupSignin = () => {
           toast.error(errorMessage);
           // ...
         });
-    } catch (error) {}
+    } catch (error) { }
   }
 
   return (
@@ -132,11 +133,16 @@ const SignupSignin = () => {
               text={"Login using Email and Password"}
               onClick={loginWithEmail}
             />
-            <p className="p-login">or</p>
+            <p className="loginOr">Or</p>
             <Button_signup
               onClick={googleAuth}
-              text={"login using Google"}
-              blue={true}
+              text={
+                <span className="loginspan">
+                  Login using
+                  <img src={googlepng} alt="Google Icon" className="googlepng" />
+                </span>
+              }
+              blue={false}
             />
             <p className="p-login" onClick={() => setLoginForm(!loginForm)}>
               Or Don't Have an Account? Click here
@@ -184,8 +190,13 @@ const SignupSignin = () => {
             <p className="p-login">or</p>
             <Button_signup
               onClick={googleAuth}
-              text={"Signup using Google"}
-              blue={true}
+              text={
+                <span className="loginspan">
+                  Signup using
+                  <img src={googlepng} alt="Google Icon" className="googlepng" />
+                </span>
+              }
+              blue={false}
             />
             <p className="p-login" onClick={() => setLoginForm(!loginForm)}>
               Or Have an Account Already? Click here
